@@ -57,6 +57,8 @@ namespace GameFinder.Data
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
         public CreateGameModel(int gameId, string title, string description, GenreType genre, AgeRating age, SystemUsed system, Guid ownerId)
         {
