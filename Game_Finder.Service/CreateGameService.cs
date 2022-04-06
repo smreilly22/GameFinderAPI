@@ -29,7 +29,7 @@ namespace Game_Finder.Service
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.CreateGameModel.Add(entity);
+                ctx.Games.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -39,7 +39,7 @@ namespace Game_Finder.Service
             {
                 var query =
                     ctx
-                    .CreateGameModels
+                    .Games
                     .Where(e => e.OwnerId == _userId)
                     .Select(e => new CreateGameListItem
                     {
