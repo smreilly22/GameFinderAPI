@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,14 +26,14 @@ namespace GameFinder.Data
         Sandbox = 15,
         OpenWorld = 16,
     }
-        public enum AgeRating
+    public enum AgeRating
     {
         Everyone = 1,
         Teen = 2,
         Mature = 3,
         Adults = 4
     }
-        public enum SystemUsed
+    public enum SystemUsed
     {
         PC = 1,
         Xbox = 2,
@@ -43,16 +44,22 @@ namespace GameFinder.Data
     public class CreateGameModel
     {
         public CreateGameModel() { }
+        [Key]
         public int GameId { get; set; }
+        [Required]
         public GenreType Genre { get; set; }
+        [Required]
         public AgeRating Age { get; set; }
+        [Required]
         public SystemUsed System { get; set; }
         public Guid OwnerId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
-       
+
         public CreateGameModel(int gameId, string title, string description, GenreType genre, AgeRating age, SystemUsed system, Guid ownerId)
-    {
+        {
             GameId = gameId;
             Title = title;
             Description = description;
@@ -60,6 +67,6 @@ namespace GameFinder.Data
             Age = age;
             System = system;
             OwnerId = ownerId;
-    }
+        }
     }
 }
