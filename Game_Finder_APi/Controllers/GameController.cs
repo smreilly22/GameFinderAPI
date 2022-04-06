@@ -9,5 +9,11 @@ namespace Game_Finder_APi.Controllers
 {
     public class GameController : ApiController
     {
+        public IHttpActionResult Get()
+        {
+            GameService gameService = CreateGameService();
+            var games = gameService.GetAllGames();
+            return Ok(games);
+        }
     }
 }
